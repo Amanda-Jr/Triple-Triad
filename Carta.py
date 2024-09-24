@@ -1,6 +1,5 @@
 import random
 
-
 class Carta:
 
     def __init__(self, cima, dir, baixo, esq):
