@@ -10,7 +10,7 @@ class Partida:
         self.vez = 0
 
     def jogar(self):
-        self.jogadores[self.vez].exibirCartas()
+        self.jogadores[self.vez].exibirCartas(self.vez)
         carta = int(input("Digite o numero da sua carta: "))
         self.jogadores[self.vez].cartas[carta].dono = self.jogadores[self.vez].nome
         linha = int(input("Digite a linha: "))

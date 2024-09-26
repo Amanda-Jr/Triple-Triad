@@ -14,10 +14,15 @@ class Jogador:
     def serCapturado(self):
         self.pontos -= 1
 
-    def exibirCartas(self):
+    def exibirCartas(self, jogador):
         linhas = ["", "", ""]
         
         for carta in self.cartas:
+            if(jogador == 0):
+                carta.cor = 'cyan'
+            else:
+                carta.cor = 'red'
+            
             carta_str = str(carta).splitlines()
             for i in range(3):
                 # Adiciona espaçamento entre as cartas
