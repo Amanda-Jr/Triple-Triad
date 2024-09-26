@@ -1,10 +1,12 @@
 from Carta import Carta
 
+
 class Jogador:
     def __init__(self, nome, cartas):
         self.nome = nome  # Nome do jogador
         self.cartas = cartas  # Lista de cartas que o jogador possui 
         self.pontos = 5   # Pontuação inicial
+
 
     def capturarCarta(self):
         self.pontos += 1

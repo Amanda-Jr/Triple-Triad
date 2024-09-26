@@ -86,6 +86,9 @@ class Baralho:
     #pega cartas aleatorias do nosso vetor com todas as cartas
     def distribuirCartas():
         baralho = random.sample(Baralho.cartas, 10)
+
         deck1 = baralho[:5]
         deck2 = baralho[5:10]
+
+
         return [deck1, deck2]

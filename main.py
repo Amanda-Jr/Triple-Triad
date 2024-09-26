@@ -7,10 +7,11 @@ from Partida import Partida
 baralho = Baralho.distribuirCartas()
 tabuleiro = Tabuleiro()
 
-deck1 = baralho[0]
+deck1 = baralho[0]   
 deck2 = baralho[1]
 
 j1 = Jogador("Joao", deck1)
+
 j2 = Jogador("Maria", deck2)
 
 pt = Partida(j1, j2, tabuleiro)

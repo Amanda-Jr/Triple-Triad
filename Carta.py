@@ -1,3 +1,5 @@
+from termcolor import colored
+
 class Carta:
 
     dono = -1
@@ -11,4 +13,7 @@ class Carta:
 
     #isso aqui é o toString em python
     def __str__(self) -> str:
-        return f'   {self.cima}\n{self.esq}    {self.dir}\n   {self.baixo}'         
+        cima_str = colored(f"   {self.cima}      ", 'cyan')
+        esq_dir_str = colored(f"{self.esq}    {self.dir}    ", 'cyan')
+        baixo_str = colored(f"   {self.baixo}      ", 'cyan')
+        return f"{cima_str}\n{esq_dir_str}\n{baixo_str}"       
