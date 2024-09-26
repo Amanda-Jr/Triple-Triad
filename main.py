@@ -16,6 +16,7 @@ j2 = Jogador("Maria", deck2)
 
 pt = Partida(j1, j2, tabuleiro)
 
+
 while(not tabuleiro.checaTabuleiroCompleto()):
     
     try:

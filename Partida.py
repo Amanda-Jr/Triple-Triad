@@ -10,6 +10,8 @@ class Partida:
         self.vez = 0
 
     def jogar(self):
+        print("\nJogador", self.vez+1)
+        self.tabuleiro.exibirTabuleiro()
         self.jogadores[self.vez].exibirCartas(self.vez)
         carta = int(input("Digite o numero da sua carta: "))
         self.jogadores[self.vez].cartas[carta].dono = self.jogadores[self.vez].nome
@@ -19,7 +21,7 @@ class Partida:
         print(self.jogadores[self.vez].cartas[carta].dono)
         self.jogadores[self.vez].cartas.pop(carta)
         print(self.tabuleiro.mat[linha][coluna])
-
+        self.tabuleiro.exibirTabuleiro()
         if(self.vez == 0):
             self.vez = 1
         else:
