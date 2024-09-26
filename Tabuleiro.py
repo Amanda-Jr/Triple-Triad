@@ -3,9 +3,9 @@ class Tabuleiro:
 
 
     def __init__(self):
-        linha = [None] * 5
+        #linha = [None] * 5
 
-        self.mat = [linha] * 5
+        self.mat = [[None, None, None, None, None],[None, None, None, None, None],[None, None, None, None, None],[None, None, None, None, None],[None, None, None, None, None]] 
 
 
     def colocarCarta(self, carta, linha, coluna):

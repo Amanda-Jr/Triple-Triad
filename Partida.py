@@ -10,7 +10,7 @@ class Partida:
         self.vez = 0
 
     def jogar(self):
-        print("\nJogador", self.vez+1)
+        print("\nVez: Jogador", self.vez+1)
         self.tabuleiro.exibirTabuleiro()
         self.jogadores[self.vez].exibirCartas(self.vez)
         carta = int(input("Digite o numero da sua carta: "))
