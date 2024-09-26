@@ -1,24 +1,29 @@
+from Carta import Carta
+
 class Jogador:
-    def __init__(self, nome):
+    def __init__(self, nome, cartas):
         self.nome = nome  # Nome do jogador
-        self.cartas = []  # Lista de cartas que o jogador possui (inicialmente vazia)
+        self.cartas = cartas  # Lista de cartas que o jogador possui 
         self.pontos = 5   # Pontuação inicial
 
-    def adicionar_carta(self, carta):
-        if len(self.cartas) < 5:
-            self.cartas.append(carta)
-        else:
-            print(f"{self.nome} já tem 5 cartas!")
-
-    def capturar_carta(self):
+    def capturarCarta(self):
         self.pontos += 1
 
-    def ser_capturado(self):
+    def serCapturado(self):
         self.pontos -= 1
 
-    def exibir_cartas(self):
-        for i, carta in enumerate(self.cartas, 1):
-            print(f"Carta {i}: {carta}")
+    def exibirCartas(self):
+        linhas = ["", "", ""]
+        
+        for carta in self.cartas:
+            carta_str = str(carta).splitlines()
+            for i in range(3):
+                # Adiciona espaçamento entre as cartas
+                linhas[i] += carta_str[i].ljust(10)  # Ajuste do espaçamento
+
+        for linha in linhas:
+            print(linha.strip())  # Remove espaços extras no final
 
     def __str__(self):
         return f"Jogador: {self.nome}, Pontos: {self.pontos}, Cartas: {len(self.cartas)}"
+    
