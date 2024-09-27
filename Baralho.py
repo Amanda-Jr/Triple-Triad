@@ -88,7 +88,14 @@ class Baralho:
         baralho = random.sample(Baralho.cartas, 10)
 
         deck1 = baralho[:5]
+        
+        for carta in deck1:
+            carta.dono = 0
+        
         deck2 = baralho[5:10]
 
+        
+        for carta in deck2:
+            carta.dono = 1
 
         return [deck1, deck2]

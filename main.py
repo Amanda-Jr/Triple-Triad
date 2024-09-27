@@ -2,6 +2,7 @@ from Baralho import Baralho
 from Tabuleiro import Tabuleiro
 from Jogador import Jogador
 from Partida import Partida
+import os
 
 
 baralho = Baralho.distribuirCartas()
@@ -19,12 +20,15 @@ pt = Partida(j1, j2, tabuleiro)
 
 while(not tabuleiro.checaTabuleiroCompleto()):
     
+    print(f'{j1.nome}: {j1.pontos}  |   {j2.nome}: {j2.pontos}')
+    
     try:
         pt.jogar()
     except:
         print("Posição Inválida, tente novamente.")
-        pt.jogar
+        pt.jogar()
     
+    os.system('clear')
 
 
 
