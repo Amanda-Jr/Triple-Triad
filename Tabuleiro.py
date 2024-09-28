@@ -1,4 +1,4 @@
-
+from termcolor import colored
 class Tabuleiro:  
 
 
@@ -20,12 +20,36 @@ class Tabuleiro:
             raise Exception("Posição Inválida, tente novamente.")
             
     def exibirTabuleiro(self):
-        print()
-        for i in range(1, 4):
-            for j in range(1, 4):
-                print(self.mat[i][j], end=" | ")
-            print()
-            print("-"*20)
+        for i in range(1, 4):  # Percorre as linhas
+            for j in range(1, 4):  # Percorre as colunas
+                
+                
+                if self.mat[i][j] is None:
+                    print("           ", end=" | ")  # Imprime o espaço vazio
+                else:
+                    print(self.mat[i][j].getSrt(1), end=" | ")
+            print()  # Pula para a próxima linha após imprimir cima de todas as cartas
+
+            for j in range(1, 4):  # Percorre novamente para a linha do meio
+                
+                
+                if self.mat[i][j] is None:
+                    print("           ", end=" | ")
+                else:
+                    
+                    print(self.mat[i][j].getSrt(2), end="| ")
+            print()  # Pula para a próxima linha
+
+            for j in range(1, 4):  # Percorre novamente para a linha de baixo
+                
+                
+                if self.mat[i][j] is None:
+                    print("           ", end=" | ")
+                else:
+                    
+                    print(self.mat[i][j].getSrt(3), end=" | ")
+            print()  # Pula para a próxima linha
+            print("-" * 40)  # Separador para as linhas
             
 
     def checaTabuleiroCompleto(self):
