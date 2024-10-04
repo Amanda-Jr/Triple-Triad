@@ -10,11 +10,12 @@ class Carta:
     if(dono == 1):
         cor = 'red'
 
-    def __init__(self, cima, dir, baixo, esq):
+    def __init__(self, cima, dir, baixo, esq, id):
         self.dir = dir
         self.esq = esq
         self.cima = cima
         self.baixo = baixo
+        self.id = id
 
     #isso aqui é o toString em python
     def __str__(self) -> str:
