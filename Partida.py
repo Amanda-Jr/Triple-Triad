@@ -125,7 +125,7 @@ class Partida:
                 print("Posição Inválida, tente novamente.")
                 self.jogar()
             
-            os.system('cls')
+            os.system('clear')
         
         return self.checaResultado()
 
