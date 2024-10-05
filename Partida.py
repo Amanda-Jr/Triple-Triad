@@ -1,3 +1,4 @@
+import pygame
 from Jogador import Jogador
 from Tabuleiro import Tabuleiro
 import os
