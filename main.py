@@ -35,12 +35,76 @@ image_width, image_height = background.get_size()
 image_x = (screen_width - image_width) // 2
 image_y = (screen_height - image_height) // 2
 
+#Teste
+active_box = None
+boxes = []
+init_pos = []
+
+Y1 = 0
+Y2 = 0
+X1 = screen_width - 110
+
+for i in range(10):
+    if i < 5:
+        box = pygame.Rect(0, Y1, 110, 80)
+        boxes.append(box)
+        Y1 += 100
+    else:
+        box = pygame.Rect(X1, Y2, 110, 80)
+        boxes.append(box)
+        Y2 += 100
+        
+
 # Loop principal do jogo
 running = True
 while running:
+    screen.fill('gray')
+    
+    image_width, image_height = background.get_size()
+
+    # Calcular a posição para centralizar a imagem
+    image_x = (screen_width - image_width) // 2
+    image_y = (screen_height - image_height) // 2
+    # Desenhar a imagem de fundo
+    screen.blit(background, (image_x, image_y))
+    
+    
+    for n, box in enumerate(boxes):
+        if n < 5:
+            pygame.draw.rect(screen,"blue", box)
+        else:
+            pygame.draw.rect(screen,"red", box)
+     
+
+    for num, c in enumerate(j1.cartas):
+        carta = pygame.image.load(f"src/{c.id}.png")
+        carta = pygame.transform.scale(carta, (110, 80))
+        screen.blit(carta, (boxes[num].x, boxes[num].y))
+
+    for num2, c2 in enumerate(j2.cartas):
+        carta2 = pygame.image.load(f"src/{c2.id}.png")
+        carta2 = pygame.transform.scale(carta2, (110, 80))
+        screen.blit(carta2, (boxes[num2 + 5].x, boxes[num2 + 5].y))
+     
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+            
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                for num, box in enumerate(boxes):
+                    if box.collidepoint(event.pos):
+                        active_box = num
+        
+        if event.type == pygame.MOUSEBUTTONUP:
+            if event.button == 1:
+                active_box = None
+                        
+        if event.type == pygame.MOUSEMOTION:
+            if active_box != None:
+                boxes[active_box].move_ip(event.rel)
+                        
         
         # Evento de redimensionamento de janela (inclui quando o quadrado de maximizar é clicado)
         elif event.type == pygame.VIDEORESIZE:
@@ -51,29 +115,7 @@ while running:
             #background = pygame.transform.scale(background, (screen_width, screen_height))
 
 
-    image_width, image_height = background.get_size()
 
-    # Calcular a posição para centralizar a imagem
-    image_x = (screen_width - image_width) // 2
-    image_y = (screen_height - image_height) // 2
-    # Desenhar a imagem de fundo
-    screen.blit(background, (image_x, image_y))
-
-    posX = 0
-    posY = 0
-    for c in j1.cartas:
-        carta = pygame.image.load(f"src/{c.id}.png")
-        carta = pygame.transform.scale(carta, (110, 80))
-        screen.blit(carta, (posX, posY))
-        posY += 100
-
-    posX = screen_width - 110
-    posY = 0
-    for c2 in j2.cartas:
-        carta2 = pygame.image.load(f"src/{c2.id}.png")
-        carta2 = pygame.transform.scale(carta2, (110, 80))
-        screen.blit(carta2, (posX, posY))
-        posY += 100
 
     # flip() the display to put your work on screen
     pygame.display.flip()
@@ -81,7 +123,7 @@ while running:
 pygame.quit()
 
 
-
+'''
 while(not haVencedor):
 
     baralho = Baralho.distribuirCartas()
@@ -107,7 +149,7 @@ while(not haVencedor):
         os.system('cls')
 
 print(f'Vencedor: {vencedor.nome}')
-
+'''
 
 
 
